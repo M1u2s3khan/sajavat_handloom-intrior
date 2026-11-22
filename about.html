@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | Sajavat Handloom & Sofa Repair</title>
 <meta name="description" content="Sajavat Handloom & Sofa Repair offers quality handloom furnishings and professional sofa repair services. Custom curtains, cushion covers, sofa foam replacement, upholstery and more.">
-
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
   /* ---------- RESET & BASE ---------- */
   * {
@@ -281,15 +281,7 @@
     transform: translateY(-2px);
   }
 
-  /* ---------- FOOTER ---------- */
-  footer {
-    background: var(--dark);
-    color: #d9cfc4;
-    text-align: center;
-    padding: 30px 24px;
-    font-size: .9rem;
-  }
-  footer strong { color: var(--accent); }
+ 
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 820px) {
@@ -492,11 +484,63 @@
 </section>
 
 <!-- ================= FOOTER ================= -->
+<!-- Footer -->
 <footer>
-  <p><strong>Sajavat Handloom &amp; Sofa Repair</strong> — Sundarta bhi, aaram bhi.</p>
-  <p style="margin-top:8px;">© <span id="year"></span> Sajavat Handloom &amp; Sofa Repair. All Rights Reserved.</p>
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:16px"><span class="mark">S</span><span>Sajavat<small style="color:#C9BBA6">HANDLOOM &amp; SOFA REPAIR</small></span></div>
+        <p>Purani cheezon ko naya roop dene aur haath se buni khoobsurti ko ghar-ghar pahunchane ka kaam.
+           Quality, samay aur imaandari — teeno hamari pehchan. 10+ saal ka bharosa, 1200+ khush parivaar.</p>
+        <div class="social-row" style="margin-top:18px">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="WhatsApp">💬</a>
+          <a href="#" title="YouTube">▶️</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">Sofa Repair</a></li>
+          <li><a href="index.html#services">Sofa Upholstery</a></li>
+          <li><a href="index.html#services">Curtains &amp; Blinds</a></li>
+          <li><a href="index.html#services">Handloom Bedsheets</a></li>
+          <li><a href="index.html#services">Chair Repair</a></li>
+          <li><a href="index.html#services">Cushions &amp; Covers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul>
+          <li>📞 +91 98XXX XXXXX</li>
+          <li>📍 Main Market, [Apna Sheher]</li>
+          <li>🕘 Mon – Sun: 9 AM – 8 PM</li>
+          <li>🚚 Free Pickup (15 km)</li>
+          <li>✅ 6-Month Warranty</li>
+        </ul>
+        <a href="#" class="btn btn-wa btn-sm" style="margin-top:14px" onclick="return openWA('Hello Sajavat!')">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="container">
+      <span>© 2025 Sajavat – Handloom &amp; Sofa Repair. All rights reserved.</span>
+      <span>Made with ❤️ for Indian Homes</span>
+    </div>
+  </div>
 </footer>
-
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
