@@ -33,45 +33,7 @@
   a { text-decoration: none; color: inherit; }
 
   /* ---------- NAVBAR ---------- */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--white);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-  .nav {
-    max-width: 1150px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-  }
-  .logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--primary);
-    letter-spacing: .3px;
-  }
-  .logo span { color: var(--accent); }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    font-weight: 500;
-    font-size: .95rem;
-  }
-  .nav-links a { color: var(--dark); transition: color .2s; }
-  .nav-links a:hover { color: var(--primary); }
-  .nav-cta {
-    background: var(--primary);
-    color: #fff !important;
-    padding: 9px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: background .25s;
-  }
-  .nav-cta:hover { background: var(--primary-dark); }
+
 
   /* ---------- HERO ---------- */
   .hero {
@@ -294,16 +256,33 @@
 <body>
 
 <!-- ================= NAVBAR ================= -->
-<header>
-  <nav class="nav">
-    <div class="logo">Sajavat <span>Handloom & Sofa Repair</span></div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#contact" class="nav-cta">Contact Us</a>
+<!-- Topbar -->
+<div class="topbar">
+  <div class="container">
+    <span>📞 +91 9810314258 &nbsp;|&nbsp; 🕘 Mon – Sun: 9 AM – 8 PM</span>
+    <span>🚚 Free Pickup &amp; Delivery Available</span>
+  </div>
+</div>
+
+<!-- Navbar -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="mark">S</span>
+      <span>Sajavat<small>HANDLOOM &amp; SOFA REPAIR</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-  </nav>
+  </div>
 </header>
 
 <!-- ================= HERO ================= -->
@@ -312,6 +291,8 @@
   <h1>Ghar Ki Sundarta Aur Aaram, Ek Saath</h1>
   <p>Sajavat Handloom &amp; Sofa Repair — quality handloom furnishings aur professional sofa repair services, aapke ghar ke liye.</p>
 </section>
+
+
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
@@ -340,7 +321,7 @@
         </p>
       </div>
       <div class="about-image">
-        <!-- Yahan apni image lagayein: <img src="about.jpg" alt="Sajavat Handloom & Sofa Repair"> -->
+        <!-- Yahan apni image lagayein: <img src="https://im.whatshot.in/img/2020/Nov/10-1604376127.jpg" alt="Sajavat Handloom & Sofa Repair"> -->
         Yahan Aap Apni Image Lagayein
       </div>
     </div>
