@@ -27,7 +27,7 @@
 html{scroll-behavior:smooth}
 body{
   font-family:'Poppins',sans-serif;
-  background:var(--bg);
+  background: white;
   color:var(--ink);
   line-height:1.75;
   -webkit-font-smoothing:antialiased;
