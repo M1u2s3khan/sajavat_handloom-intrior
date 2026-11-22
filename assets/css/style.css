@@ -76,9 +76,24 @@ section{padding:90px 0}
 .btn-sm{padding:10px 20px;font-size:.85rem}
 
 /* ---------- Topbar ---------- */
-.topbar{background:var(--brand-dark);color:#F5E9DB;font-size:.84rem}
-.topbar .container{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px}
-.topbar span{white-space:nowrap;display:flex;align-items:center;gap:6px}
+.topbar{
+  background: #F44AA0;
+  color:#F5E9DB;
+  font-size:.84rem
+}
+
+.topbar .container{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding-top:9px;
+  padding-bottom:9px
+}
+.topbar span{
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:6px}
 
 /* ---------- Navbar ---------- */
 header.nav{
@@ -119,7 +134,7 @@ header.nav.scrolled{box-shadow:0 4px 18px rgba(60,40,20,.06)}
   padding:78px 0 100px;
 }
 .hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
-.hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);line-height:1.12;margin-bottom:20px;color:var(--ink)}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);line-height:1.12;margin-bottom:20px;color:black; background:white}
 .hero h1 em{color:var(--brand);font-style:italic}
 .hero p{color:var(--muted);font-size:1.04rem;margin-bottom:30px;max-width:540px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
@@ -386,14 +401,45 @@ textarea{resize:vertical;min-height:110px}
 .cta-banner .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
 
 /* ---------- Footer ---------- */
-footer{background:#2A211B;color:#EDE4D6;padding:60px 0 0}
-.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:42px}
-footer h4{font-family:'Playfair Display';font-size:1.1rem;color:#fff;margin-bottom:16px}
-footer p,footer li{font-size:.88rem;color:#C9BBA6}
-footer li{margin-bottom:10px}
-footer a:hover{color:#fff}
-.f-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;font-size:.82rem;text-align:center;color:#A7987F}
-.f-bottom .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer{
+  background:black;
+  color:#EDE4D6;
+  padding:60px 0 0
+}
+.f-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+  gap:36px;
+  padding-bottom:42px
+}
+footer h4{
+  font-family:'Playfair Display';
+  font-size:1.1rem;
+  color:#fff;
+  margin-bottom:16px
+}
+footer p,footer li{
+  font-size:.88rem;
+  color:#C9BBA6}
+footer li{
+  margin-bottom:10px
+}
+footer a:hover{
+  color:#fff
+}
+.f-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:20px 0;
+  font-size:.82rem;
+  text-align:center;
+  color:#A7987F
+}
+.f-bottom .container{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap
+}
 
 /* ---------- WhatsApp float ---------- */
 .wa-float{
