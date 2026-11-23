@@ -11,6 +11,134 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- ============ NEW: Call Float + Quote Modal Styles ============ -->
+<style>
+/* -------- Floating Call Button (RED, LIVE pulse) -------- */
+.call-float{
+  position:fixed;right:20px;bottom:92px;z-index:951;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#ff3b3b,#c62828);
+  display:grid;place-items:center;color:#fff;
+  box-shadow:0 10px 30px rgba(229,57,53,.55),0 0 0 0 rgba(229,57,53,.6);
+  transition:transform .3s;
+  text-decoration:none;
+}
+.call-float:hover{transform:scale(1.08) rotate(-6deg)}
+.call-float::before,
+.call-float::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  border:2px solid #ff5252;
+  animation:callPing 2s ease-out infinite;
+  pointer-events:none;
+}
+.call-float::after{animation-delay:1s}
+@keyframes callPing{
+  0%   {transform:scale(1);   opacity:.9}
+  80%,100%{transform:scale(1.9);opacity:0}
+}
+.call-float svg{width:28px;height:28px;fill:#fff;position:relative;z-index:2}
+
+/* Live dot indicator */
+.call-float .live-dot{
+  position:absolute;top:4px;right:4px;width:12px;height:12px;
+  background:#4caf50;border-radius:50%;border:2px solid #fff;
+  animation:liveDot 1.2s ease-in-out infinite;
+}
+@keyframes liveDot{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(76,175,80,.7)}
+  50%    {transform:scale(1.15);box-shadow:0 0 0 6px rgba(76,175,80,0)}
+}
+
+/* -------- Quote Modal Overlay -------- */
+.qf-overlay{
+  position:fixed;inset:0;z-index:99998;
+  background:rgba(18,14,11,.78);
+  backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.qf-overlay.open{display:flex}
+
+/* -------- Quote Modal Box -------- */
+.qf-modal{
+  position:relative;
+  background:#fff;border-radius:20px;
+  width:100%;max-width:480px;max-height:92vh;overflow-y:auto;
+  padding:30px 28px 26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+  animation:qfPop .32s cubic-bezier(.17,.67,.35,1.2) both;
+}
+@keyframes qfPop{
+  from{transform:translateY(24px) scale(.94);opacity:0}
+  to  {transform:none;opacity:1}
+}
+.qf-close{
+  position:absolute;top:14px;right:14px;
+  width:36px;height:36px;border-radius:50%;
+  border:0;cursor:pointer;
+  background:#f2ebe1;color:#2b2320;
+  font-size:1rem;display:grid;place-items:center;
+  transition:.25s;
+}
+.qf-close:hover{background:#e53935;color:#fff;transform:rotate(90deg)}
+
+.qf-head{margin-bottom:22px;padding-right:34px}
+.qf-head h3{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.5rem;color:#2b2320;margin:0 0 6px;
+}
+.qf-head p{font-size:.86rem;color:#8a7d72;margin:0;font-weight:300}
+
+/* Form fields */
+.qf-form{display:flex;flex-direction:column;gap:14px}
+.qf-field{display:flex;flex-direction:column;gap:6px}
+.qf-field label{
+  font-size:.78rem;font-weight:600;color:#4a3f38;
+  letter-spacing:.02em;text-transform:uppercase;
+}
+.qf-field input,
+.qf-field select,
+.qf-field textarea{
+  font-family:'Poppins',sans-serif;font-size:.92rem;
+  padding:12px 14px;border-radius:10px;
+  border:1.5px solid #e6dccd;background:#faf6f0;color:#2b2320;
+  outline:none;transition:.22s;width:100%;box-sizing:border-box;
+}
+.qf-field input:focus,
+.qf-field select:focus,
+.qf-field textarea:focus{
+  border-color:#b5895a;background:#fff;
+  box-shadow:0 0 0 4px rgba(181,137,90,.15);
+}
+.qf-field textarea{resize:vertical;min-height:72px}
+
+.qf-submit{
+  margin-top:6px;padding:14px 22px;border:0;border-radius:100px;
+  background:#25d366;color:#fff;font-family:inherit;
+  font-size:.95rem;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 8px 20px rgba(37,211,102,.32);
+  transition:.25s;
+}
+.qf-submit:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(37,211,102,.45);
+}
+
+.qf-note{
+  font-size:.74rem;color:#8a7d72;text-align:center;
+  margin-top:12px;font-weight:300;
+}
+
+/* Small phones */
+@media(max-width:560px){
+  .qf-modal{padding:24px 20px 20px;border-radius:16px}
+  .qf-head h3{font-size:1.25rem}
+  .call-float{width:52px;height:52px;bottom:88px;right:16px}
+  .call-float svg{width:24px;height:24px}
+}
+</style>
 </head>
 <body>
 
@@ -47,13 +175,13 @@
 <section class="hero" id="home">
   <div class="container">
     <div>
-      <span class="eyebrow bg-light">✨ Handloom &amp; Sofa Repair Experts</span>
-      <h1>Ghar ka <em>Sajawat</em>,<br>Hunar se Banaya</h1>
+      <span class="bg-light">✨ Handloom &amp; Sofa Repair Experts</span>
+      <h1>Ghar ki <em>Sajawat</em>,<br>Hunar se Banaya</h1>
       <p>Sofa repair, upholstery, curtains aur handmade handloom products — sab ek jagah.
          10+ saal ka bharosa, premium fabric aur perfect fitting ke saath.
          Purana sofa bilkul naya jaisa, haath se buni khoobsurti ghar-ghar.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Free Estimate Lein</a>
+        <a href="#contact" class="btn btn-primary qf-trigger" data-service="Free Estimate">Free Estimate Lein</a>
         <a href="#" class="btn btn-ghost" onclick="return openWA('Hello Sajawat! Mujhe services ke bare me jankari chahiye.')">💬 WhatsApp Karein</a>
       </div>
       <div class="hero-trust">
@@ -147,7 +275,7 @@
           <p>Frame repair, foam change, spring fixing aur polishing — purana sofa bilkul naya jaisa.
              Woodwork se lekar cushion tak, har detail par dhyan.</p>
           <div class="price">Starting from <b>₹1,499</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Sofa Repair & Restoration">Book Now</a>
         </div>
       </div>
 
@@ -161,7 +289,7 @@
           <p>Premium fabric collection ke saath custom fitting — aapki pasand ka design, color aur
              texture, perfect finishing ke saath. 200+ fabric options.</p>
           <div class="price">Starting from <b>₹2,999</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Sofa Upholstery">Book Now</a>
         </div>
       </div>
 
@@ -175,7 +303,7 @@
           <p>Naap ke hisaab se stitching aur fitting — living room se bedroom tak complete look.
              Sheer, blackout, Roman blinds — sab kuch ek jagah.</p>
           <div class="price">Starting from <b>₹299</b>/sq.ft</div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Curtains & Blinds">Book Now</a>
         </div>
       </div>
 
@@ -189,7 +317,7 @@
           <p>Haath se bune pure handloom products — soft, durable aur traditional designs.
              Cotton, jaipur print, block print — har design ek kahani ke saath.</p>
           <div class="price">Starting from <b>₹599</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Handloom Bedsheets & Dohar">Book Now</a>
         </div>
       </div>
 
@@ -203,44 +331,39 @@
           <p>Dining chairs, office chairs aur faarming — repair aur re-upholstery dono.
              Wood polish, webbing change, cushion refill — sab kuch.</p>
           <div class="price">Starting from <b>₹499</b>/chair</div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Chair & Dining Repair">Book Now</a>
         </div>
       </div>
 
-<div class="service-card reveal">
+      <div class="service-card reveal">
         <div class="img">
           <span class="tag">Kitchen Interiors</span>
-           <img src="https://wallter.in/wp-content/uploads/2025/06/wallter-multifunctional-kitchen-smart-hardware-under-50kb.webp"
-         alt="Modern Modular Kitchen Interior Design"
-         loading="lazy"/>
+          <img src="https://wallter.in/wp-content/uploads/2025/06/wallter-multifunctional-kitchen-smart-hardware-under-50kb.webp" alt="Modern Modular Kitchen Interior Design" loading="lazy"/>
         </div>
         <div class="body">
           <h3>Modular Kitchen Interior Design</h3>
-          <p>Transform your kitchen with stylish modular designs, 
-      premium cabinets, smart storage solutions, elegant 
-      countertops and high-quality finishing.</p>
+          <p>Transform your kitchen with stylish modular designs,
+             premium cabinets, smart storage solutions, elegant
+             countertops and high-quality finishing.</p>
           <div class="price">Starting from <b>₹2,999</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Modular Kitchen Interior">Book Now</a>
         </div>
       </div>
 
       <div class="service-card reveal">
         <div class="img">
           <span class="tag">Handloom Curtains</span>
-            <img src="https://cpimg.tistatic.com/03753346/b/4/Handloom-Curtains.jpg"
-         alt="Premium Handloom Curtains and Home Decor"
-         loading="lazy"/>
+          <img src="https://cpimg.tistatic.com/03753346/b/4/Handloom-Curtains.jpg" alt="Premium Handloom Curtains and Home Decor" loading="lazy"/>
         </div>
         <div class="body">
-          <h3>Handloom Curtains & Parde</h3>
+          <h3>Handloom Curtains &amp; Parde</h3>
           <p>Enhance your home with premium handloom curtains,
-      elegant fabrics and beautiful designs. Custom sizes,
-      stylish patterns and perfect finishing for every room.</p>
+             elegant fabrics and beautiful designs. Custom sizes,
+             stylish patterns and perfect finishing for every room.</p>
           <div class="price">Starting from <b>₹2,999</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Handloom Curtains & Parde">Book Now</a>
         </div>
       </div>
-
 
       <div class="service-card reveal">
         <div class="img">
@@ -252,7 +375,7 @@
           <p>Matching cushion covers, doormats aur carpets — ghar ke har kone ko sajayen.
              Custom sizes, fabrics aur designs available.</p>
           <div class="price">Starting from <b>₹199</b></div>
-          <a href="#contact" class="btn btn-ghost btn-sm">Book Now</a>
+          <a href="#contact" class="btn btn-ghost btn-sm qf-trigger" data-service="Cushions, Covers & Carpets">Book Now</a>
         </div>
       </div>
 
@@ -345,7 +468,7 @@
       </a>
     </div>
     <div class="gallery-link-bar">
-      <a href="Gallery.html" class="btn btn-primary">📷 Poora Gallery Dekhein →</a>
+      <a href="gallery.html" class="btn btn-primary">📷 Poora Gallery Dekhein →</a>
     </div>
   </div>
 </section>
@@ -373,7 +496,7 @@
           <li>Free home visit</li>
           <li>3-month warranty</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">Get Estimate</a>
+        <a href="#contact" class="btn btn-ghost qf-trigger" data-service="Basic Repair Package">Get Estimate</a>
       </div>
 
       <div class="price-card featured reveal">
@@ -390,7 +513,7 @@
           <li>Free pickup &amp; delivery</li>
           <li>6-month warranty</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Book Now</a>
+        <a href="#contact" class="btn btn-primary qf-trigger" data-service="Complete Restoration Package">Book Now</a>
       </div>
 
       <div class="price-card reveal">
@@ -406,7 +529,7 @@
           <li>Free pickup &amp; delivery</li>
           <li>12-month warranty</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">Get Estimate</a>
+        <a href="#contact" class="btn btn-ghost qf-trigger" data-service="Custom Premium Package">Get Estimate</a>
       </div>
 
     </div>
@@ -520,7 +643,7 @@
       <p>Free estimate bilkul free hai. 30 minute mein reply milta hai. Abhi WhatsApp ya call karein.</p>
       <div class="btns">
         <a href="#" class="btn btn-wa" onclick="return openWA('Hello Sajawat! Mujhe free estimate chahiye.')">💬 WhatsApp Karein</a>
-        <a href="tel:+9198XXXXXXX" class="btn btn-light">📞 Call: +91 98XXX XXXXX</a>
+        <a href="tel:+919810314258" class="btn btn-light">📞 Call: +91 98103 14258</a>
       </div>
     </div>
   </div>
@@ -538,7 +661,7 @@
     <div class="contact-grid">
 
       <div class="info-card reveal">
-        <div class="info-item"><div class="ico">📞</div><div><b>Phone / WhatsApp</b><p>+91 98XXX XXXXX<br>Mon – Sun: 9 AM – 8 PM</p></div></div>
+        <div class="info-item"><div class="ico">📞</div><div><b>Phone / WhatsApp</b><p>+91 98103 14258<br>Mon – Sun: 9 AM – 8 PM</p></div></div>
         <div class="info-item"><div class="ico">📍</div><div><b>Address</b><p>Shop No. __, Main Market,<br>[Apna Sheher / Area], PIN</p></div></div>
         <div class="info-item"><div class="ico">🕘</div><div><b>Timing</b><p>Monday – Sunday: 9:00 AM – 8:00 PM<br>(Sunday half day)</p></div></div>
         <div class="info-item"><div class="ico">🚚</div><div><b>Service Area</b><p>Sheher aur aas-paas ke 15 km area tak free pickup &amp; delivery.</p></div></div>
@@ -640,7 +763,7 @@
       <div>
         <h4>Get in Touch</h4>
         <ul>
-          <li>📞 +91 98XXX XXXXX</li>
+          <li>📞 +91 98103 14258</li>
           <li>📍 Main Market, [Apna Sheher]</li>
           <li>🕘 Mon – Sun: 9 AM – 8 PM</li>
           <li>🚚 Free Pickup (15 km)</li>
@@ -658,18 +781,156 @@
   </div>
 </footer>
 
+<!-- ============ NEW: Floating Call Button (RED LIVE) ============ -->
+<a href="tel:+919810314258" class="call-float" aria-label="Call Now">
+  <span class="live-dot"></span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/>
+  </svg>
+</a>
+
 <!-- WhatsApp Float -->
 <a href="#" class="wa-float" aria-label="WhatsApp" onclick="return openWA('Hello Sajawat! Mujhe service chahiye.')">
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.7 1.4 5.7 1.4h.1c6.5 0 11.9-5.4 11.9-12S22.5 3 16 3zm0 21.9c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4c-1-1.6-1.6-3.4-1.6-5.2 0-5.5 4.9-10.4 11.2-10.4S27.5 8.9 27.5 15 22.3 24.9 16 24.9zm5.6-7.4c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.5 3.9 6.1 5.3.9.4 1.5.6 2 .7.9.3 1.7.3 2.3.2.7-.1 2-.9 2.3-1.7.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
 </a>
 
+<!-- ============ NEW: Quote Modal ============ -->
+<div class="qf-overlay" id="qfOverlay" role="dialog" aria-modal="true" aria-labelledby="qfTitle">
+  <div class="qf-modal">
+    <button class="qf-close" id="qfClose" aria-label="Close">✕</button>
+    <div class="qf-head">
+      <h3 id="qfTitle">Free Estimate Lein</h3>
+      <p>Apni details bharein — hum turant WhatsApp par reply karenge.</p>
+    </div>
+    <form class="qf-form" id="qfForm">
+      <div class="qf-field">
+        <label for="qfName">Aapka Naam *</label>
+        <input type="text" id="qfName" placeholder="e.g. Rahul Sharma" required>
+      </div>
+      <div class="qf-field">
+        <label for="qfPhone">Mobile Number *</label>
+        <input type="tel" id="qfPhone" placeholder="e.g. 98765 43210" required pattern="[0-9]{10}">
+      </div>
+      <div class="qf-field">
+        <label for="qfService">Service</label>
+        <input type="text" id="qfService" placeholder="e.g. Sofa Repair">
+      </div>
+      <div class="qf-field">
+        <label for="qfMsg">Message (Optional)</label>
+        <textarea id="qfMsg" placeholder="Sofa size, color preference, area etc."></textarea>
+      </div>
+      <button type="submit" class="qf-submit">💬 WhatsApp par Bhejein</button>
+      <p class="qf-note">🔐 Aapki details sirf quote dene ke liye use hongi.</p>
+    </form>
+  </div>
+</div>
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Sajawat - Handloom & Sofa Repair",
 "description":"Sofa repair, upholstery, curtains, handloom bedsheets aur handmade products. Free pickup & delivery, 6-month warranty.",
-"telephone":"+91-98XXXXXXX","priceRange":"₹₹","areaServed":"15 km radius","openingHours":"Mo-Su 09:00-20:00"}
+"telephone":"+91-9810314258","priceRange":"₹₹","areaServed":"15 km radius","openingHours":"Mo-Su 09:00-20:00"}
 </script>
 
 <script src="assets/js/index.js"></script>
 <script src="assets/js/Gallery.js"></script>
+
+<!-- ============ NEW: Quote Modal Logic ============ -->
+<script>
+(function () {
+  'use strict';
+
+  var WA_NUMBER = '919810314258';
+  var overlay   = document.getElementById('qfOverlay');
+  var closeBtn  = document.getElementById('qfClose');
+  var form      = document.getElementById('qfForm');
+  var serviceIn = document.getElementById('qfService');
+  var nameIn    = document.getElementById('qfName');
+  var phoneIn   = document.getElementById('qfPhone');
+  var msgIn     = document.getElementById('qfMsg');
+
+  if (!overlay) return;
+
+  /* ---------- OPEN ---------- */
+  function openQuote(prefillService) {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (prefillService) serviceIn.value = prefillService;
+    setTimeout(function () { nameIn.focus(); }, 120);
+  }
+
+  /* ---------- CLOSE ---------- */
+  function closeQuote() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ---------- Intercept Book Now / Get Estimate buttons ---------- */
+  document.querySelectorAll('.qf-trigger, a[href="#contact"]').forEach(function (link) {
+    var txt = (link.textContent || '').toLowerCase();
+    var shouldOpen = link.classList.contains('qf-trigger')
+                     || txt.indexOf('book') !== -1
+                     || txt.indexOf('estimate') !== -1;
+    if (!shouldOpen) return;
+
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // service name: data-service attribute or from nearest card heading
+      var svc = link.getAttribute('data-service') || '';
+      if (!svc) {
+        var card = link.closest('.service-card, .price-card');
+        if (card) {
+          var h = card.querySelector('h3');
+          if (h) svc = h.textContent.trim();
+        }
+      }
+      openQuote(svc);
+    });
+  });
+
+  /* ---------- Controls ---------- */
+  closeBtn.addEventListener('click', closeQuote);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeQuote();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeQuote();
+  });
+
+  /* ---------- Submit → WhatsApp ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var name  = nameIn.value.trim();
+    var phone = phoneIn.value.trim();
+    var svc   = serviceIn.value.trim();
+    var msg   = msgIn.value.trim();
+
+    if (!name || !phone) {
+      alert('Kripya apna naam aur mobile number bharein.');
+      return;
+    }
+
+    var text  = 'Hello Sajawat! 🙏\n\n';
+    text += '*Free Estimate Request*\n';
+    text += '👤 Name: ' + name + '\n';
+    text += '📞 Phone: ' + phone + '\n';
+    if (svc) text += '🛠️ Service: ' + svc + '\n';
+    if (msg) text += '📝 Message: ' + msg + '\n';
+
+    window.open(
+      'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text),
+      '_blank'
+    );
+
+    form.reset();
+    closeQuote();
+  });
+
+  console.log('[QuoteModal] Ready');
+})();
+</script>
+
 </body>
 </html>
