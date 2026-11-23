@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gallery - Sajavat | Sofa Repair, Upholstery, Curtains &amp; Handloom Work</title>
-<meta name="description" content="Sajavat ka gallery - hamari karigari ke real photos. Sofa before/after, upholstery, curtains, handloom bedsheets, cushion covers aur chair repair dekhein."/>
+<title>Gallery - Sajawat | Sofa Repair, Upholstery, Curtains &amp; Handloom Work</title>
+<meta name="description" content="Sajawat ka gallery - hamari karigari ke real photos. Sofa before/after, upholstery, curtains, handloom bedsheets, cushion covers aur chair repair dekhein."/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
   <div class="container">
     <a href="index.html" class="logo">
       <span class="mark">S</span>
-      <span>Sajavat<small>HANDLOOM &amp; SOFA REPAIR</small></span>
+      <span>Sajawat<small>HANDLOOM &amp; SOFA REPAIR</small></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -54,11 +54,11 @@
 </div>
 
 <!-- Gallery -->
-<section style="padding:50px 0 80px">
+<section style="padding:50px 0 70px">
   <div class="container">
 
     <!-- Filters -->
-    <div class="gallery-filters">
+    <div class="gallery-filters" id="galleryFilters">
       <button class="filter-btn active" data-cat="all">All Work</button>
       <button class="filter-btn" data-cat="sofa">🛋️ Sofa Repair</button>
       <button class="filter-btn" data-cat="upholstery">🧵 Upholstery</button>
@@ -69,280 +69,348 @@
       <button class="filter-btn" data-cat="decor">🏡 Living Room</button>
     </div>
 
+    <p class="gallery-count"><b id="galleryCount">0</b> kaam dikh rahe hain</p>
+
     <!-- Gallery grid -->
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- Sofa Repair (workshop) -->
-      <div class="gitem reveal" data-cat="sofa" data-cap="Sofa Frame Restoration" data-sub="Workshop view — old frame being rebuilt">
+      <!-- ============ SOFA REPAIR ============ -->
+      <div class="gitem" data-cat="sofa" data-cap="Sofa Frame Restoration" data-sub="Workshop view — old frame being rebuilt">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/ca7c130a15d4.jpg" alt="Sofa repair workshop" loading="lazy"/>
         <div class="meta"><b>Sofa Frame Restoration</b><span>Workshop view</span></div>
       </div>
 
-      <!-- Sofa Upholstery -->
-      <div class="gitem reveal" data-cat="upholstery" data-cap="Premium Sofa Upholstery" data-sub="New fabric being fitted">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b0c55ddfef0c.jpg" alt="Premium sofa upholstery fabric" loading="lazy"/>
-        <div class="meta"><b>Premium Sofa Upholstery</b><span>Fabric fitting</span></div>
-      </div>
-
-      <!-- Curtains -->
-      <div class="gitem reveal tall" data-cat="curtains" data-cap="Elegant Curtains" data-sub="Custom stitched drapes">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/505d809d3dbd.jpg" alt="Elegant curtains" loading="lazy"/>
-        <div class="meta"><b>Elegant Curtains</b><span>Custom stitched</span></div>
-      </div>
-
-      <!-- Handloom Bedsheets -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Handloom Bedsheet" data-sub="Pure cotton, traditional print">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d5c963875747.jpg" alt="Handloom bedsheet" loading="lazy"/>
-        <div class="meta"><b>Handloom Bedsheet</b><span>Pure cotton</span></div>
-      </div>
-
-      <!-- Chair Repair -->
-      <div class="gitem reveal" data-cat="chairs" data-cap="Dining Chair Restoration" data-sub="Re-upholstered seat">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/58f1ea034c84.jpg" alt="Dining chair restoration" loading="lazy"/>
-        <div class="meta"><b>Dining Chair Restoration</b><span>Re-upholstered</span></div>
-      </div>
-
-      <!-- Cushion Covers -->
-      <div class="gitem reveal" data-cat="cushions" data-cap="Decorative Cushions" data-sub="Handmade cushion covers">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b6b854412e20.jpg" alt="Decorative cushion covers" loading="lazy"/>
-        <div class="meta"><b>Decorative Cushions</b><span>Handmade</span></div>
-      </div>
-
-      <!-- Living Room -->
-      <div class="gitem reveal" data-cat="decor" data-cap="Living Room Decor" data-sub="Complete makeover">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/97ce4879fca1.jpg" alt="Living room decor" loading="lazy"/>
-        <div class="meta"><b>Living Room Decor</b><span>Complete makeover</span></div>
-      </div>
-
-      <!-- Sofa Upholstery 2 -->
-      <div class="gitem reveal" data-cat="upholstery" data-cap="Velvet Sofa Upholstery" data-sub="Designer fabric finish">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9d65d45a7bd0.jpg" alt="Velvet sofa upholstery" loading="lazy"/>
-        <div class="meta"><b>Velvet Sofa Upholstery</b><span>Designer fabric</span></div>
-      </div>
-
-      <!-- Handloom Bedsheet 2 -->
-      <div class="gitem reveal tall" data-cat="handloom" data-cap="Traditional Print Bedsheet" data-sub="Block print design">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f0bea432de3f.jpg" alt="Traditional print bedsheet" loading="lazy"/>
-        <div class="meta"><b>Traditional Print</b><span>Block print design</span></div>
-      </div>
-
-      <!-- Curtains 2 -->
-      <div class="gitem reveal" data-cat="curtains" data-cap="Sheer Curtains" data-sub="Living room fitting">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/140c94dad20f.jpg" alt="Sheer curtains" loading="lazy"/>
-        <div class="meta"><b>Sheer Curtains</b><span>Living room fitting</span></div>
-      </div>
-
-      <!-- Cushion 2 -->
-      <div class="gitem reveal" data-cat="cushions" data-cap="Colorful Cushions Set" data-sub="Matching cushion covers">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/82efd582cbd0.jpg" alt="Colorful cushion covers" loading="lazy"/>
-        <div class="meta"><b>Colorful Cushions Set</b><span>Matching covers</span></div>
-      </div>
-
-      <!-- Chair 2 -->
-      <div class="gitem reveal" data-cat="chairs" data-cap="Office Chair Repair" data-sub="Re-upholstered seat & back">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a2d2b614a977.jpg" alt="Office chair repair" loading="lazy"/>
-        <div class="meta"><b>Office Chair Repair</b><span>Re-upholstered</span></div>
-      </div>
-
-      <!-- Living Room 2 -->
-      <div class="gitem reveal" data-cat="decor" data-cap="Cozy Living Space" data-sub="Sofa &amp; cushions combined">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/79854e62e999.jpg" alt="Cozy living space" loading="lazy"/>
-        <div class="meta"><b>Cozy Living Space</b><span>Sofa + cushions</span></div>
-      </div>
-
-      <!-- Handloom Weaving -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Handloom Weaving" data-sub="Artisan at work">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/840c051d8413.jpg" alt="Handloom weaving" loading="lazy"/>
-        <div class="meta"><b>Handloom Weaving</b><span>Artisan at work</span></div>
-      </div>
-
-      <!-- Sofa Repair Workshop 2 -->
-      <div class="gitem reveal" data-cat="sofa" data-cap="Foam Replacement" data-sub="High-density foam fitting">
+      <div class="gitem" data-cat="sofa" data-cap="Foam Replacement" data-sub="High-density foam fitting">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7d862feea7dc.jpg" alt="Foam replacement work" loading="lazy"/>
         <div class="meta"><b>Foam Replacement</b><span>High-density foam</span></div>
       </div>
 
-      <!-- Upholstery 3 -->
-      <div class="gitem reveal" data-cat="upholstery" data-cap="Designer Fabric Sofa" data-sub="Custom print upholstery">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b3c247d52da5.png" alt="Designer fabric sofa" loading="lazy"/>
-        <div class="meta"><b>Designer Fabric Sofa</b><span>Custom print</span></div>
-      </div>
-
-      <!-- Curtains 3 -->
-      <div class="gitem reveal" data-cat="curtains" data-cap="Blackout Curtains" data-sub="Bedroom fitting">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/70275e9031b3.jpg" alt="Blackout curtains" loading="lazy"/>
-        <div class="meta"><b>Blackout Curtains</b><span>Bedroom fitting</span></div>
-      </div>
-
-      <!-- Handloom 3 -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Jaipuri Print Bedsheet" data-sub="Traditional design">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b42db515ecd6.jpg" alt="Jaipuri print bedsheet" loading="lazy"/>
-        <div class="meta"><b>Jaipuri Print</b><span>Traditional design</span></div>
-      </div>
-
-      <!-- Cushions 3 -->
-      <div class="gitem reveal" data-cat="cushions" data-cap="Embroidered Cushion" data-sub="Hand-stitched">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9969d6bf5768.jpg" alt="Embroidered cushion cover" loading="lazy"/>
-        <div class="meta"><b>Embroidered Cushion</b><span>Hand-stitched</span></div>
-      </div>
-
-      <!-- Chairs 3 -->
-      <div class="gitem reveal tall" data-cat="chairs" data-cap="Vintage Chair Restore" data-sub="Wood polish + upholstery">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/995310297aea.jpg" alt="Vintage chair restoration" loading="lazy"/>
-        <div class="meta"><b>Vintage Chair Restore</b><span>Polish + upholstery</span></div>
-      </div>
-
-      <!-- Decor 3 -->
-      <div class="gitem reveal" data-cat="decor" data-cap="Modern Living Room" data-sub="Sofa + curtain combo">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/93f017bb8809.jpg" alt="Modern living room" loading="lazy"/>
-        <div class="meta"><b>Modern Living Room</b><span>Sofa + curtain combo</span></div>
-      </div>
-
-      <!-- Handloom Weaving 2 -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Loom in Action" data-sub="Traditional weaving process">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6f8ee395700f.jpg" alt="Loom in action" loading="lazy"/>
-        <div class="meta"><b>Loom in Action</b><span>Traditional weaving</span></div>
-      </div>
-
-      <!-- Sofa Repair 3 -->
-      <div class="gitem reveal" data-cat="sofa" data-cap="Spring Replacement" data-sub="Coil spring fitting">
+      <div class="gitem" data-cat="sofa" data-cap="Spring Replacement" data-sub="Coil spring fitting">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e37630650fdc.jpg" alt="Spring replacement" loading="lazy"/>
         <div class="meta"><b>Spring Replacement</b><span>Coil spring fitting</span></div>
       </div>
 
-      <!-- Upholstery 4 -->
-      <div class="gitem reveal" data-cat="upholstery" data-cap="Cushion Refilling" data-sub="Memory foam upgrade">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3f3861fdbd3a.jpg" alt="Cushion refilling" loading="lazy"/>
-        <div class="meta"><b>Cushion Refilling</b><span>Memory foam upgrade</span></div>
-      </div>
-
-      <!-- Curtains 4 -->
-      <div class="gitem reveal" data-cat="curtains" data-cap="Roman Blinds" data-sub="Custom stitched">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4eba969b10f2.jpeg" alt="Roman blinds" loading="lazy"/>
-        <div class="meta"><b>Roman Blinds</b><span>Custom stitched</span></div>
-      </div>
-
-      <!-- Handloom 4 -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Cotton Dohar" data-sub="Lightweight summer quilt">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/ef9aa93eda74.jpg" alt="Cotton dohar" loading="lazy"/>
-        <div class="meta"><b>Cotton Dohar</b><span>Summer quilt</span></div>
-      </div>
-
-      <!-- Cushions 4 -->
-      <div class="gitem reveal" data-cat="cushions" data-cap="Boho Cushion Set" data-sub="Tasseled design">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/5357c6775c6d.png" alt="Boho cushion set" loading="lazy"/>
-        <div class="meta"><b>Boho Cushion Set</b><span>Tasseled design</span></div>
-      </div>
-
-      <!-- Decor 4 -->
-      <div class="gitem reveal" data-cat="decor" data-cap="Cozy Reading Corner" data-sub="Chair + cushion + curtain">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/91822e676905.png" alt="Cozy reading corner" loading="lazy"/>
-        <div class="meta"><b>Cozy Reading Corner</b><span>Chair + curtain</span></div>
-      </div>
-
-      <!-- Sofa 4 -->
-      <div class="gitem reveal" data-cat="sofa" data-cap="Polishing &amp; Detailing" data-sub="Wood frame refinish">
+      <div class="gitem" data-cat="sofa" data-cap="Polishing &amp; Detailing" data-sub="Wood frame refinish">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e372721137b0.jpg" alt="Polishing work" loading="lazy"/>
         <div class="meta"><b>Polishing &amp; Detailing</b><span>Wood frame refinish</span></div>
       </div>
 
-      <!-- Handloom 5 -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Block Print Process" data-sub="Hand printing on fabric">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/00ef73a0b7b8.png" alt="Block print process" loading="lazy"/>
-        <div class="meta"><b>Block Print Process</b><span>Hand printing</span></div>
-      </div>
-
-      <!-- Cushions 5 -->
-      <div class="gitem reveal" data-cat="cushions" data-cap="Velvet Cushion Covers" data-sub="Premium fabric">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/cfa925612867.jpg" alt="Velvet cushion covers" loading="lazy"/>
-        <div class="meta"><b>Velvet Cushion Covers</b><span>Premium fabric</span></div>
-      </div>
-
-      <!-- Upholstery 5 -->
-      <div class="gitem reveal" data-cat="upholstery" data-cap="Recliner Upholstery" data-sub="Custom leatherette">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7e95fe406fb0.jpg" alt="Recliner upholstery" loading="lazy"/>
-        <div class="meta"><b>Recliner Upholstery</b><span>Custom leatherette</span></div>
-      </div>
-
-      <!-- Chairs 5 -->
-      <div class="gitem reveal" data-cat="chairs" data-cap="Farmhouse Chair Repair" data-sub="Cane + upholstery">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0b77b87a04d7.jpg" alt="Farmhouse chair repair" loading="lazy"/>
-        <div class="meta"><b>Farmhouse Chair Repair</b><span>Cane + upholstery</span></div>
-      </div>
-
-      <!-- Curtains 5 -->
-      <div class="gitem reveal" data-cat="curtains" data-cap="Layered Curtains" data-sub="Sheer + blackout combo">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/047b1555a0dc.webp" alt="Layered curtains" loading="lazy"/>
-        <div class="meta"><b>Layered Curtains</b><span>Sheer + blackout</span></div>
-      </div>
-
-      <!-- Handloom 5b -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Natural Dye Process" data-sub="Traditional coloring">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/abe0bb065f21.jpg" alt="Natural dye process" loading="lazy"/>
-        <div class="meta"><b>Natural Dye Process</b><span>Traditional coloring</span></div>
-      </div>
-
-      <!-- Decor 5 -->
-      <div class="gitem reveal" data-cat="decor" data-cap="Heritage Living Room" data-sub="Antique sofa restored">
-        <div class="zoom-ic">🔍</div>
-        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/89659a34eabb.jpeg" alt="Heritage living room" loading="lazy"/>
-        <div class="meta"><b>Heritage Living Room</b><span>Antique restored</span></div>
-      </div>
-
-      <!-- Sofa 5 -->
-      <div class="gitem reveal" data-cat="sofa" data-cap="Frame Welding" data-sub="Metal frame repair">
+      <div class="gitem" data-cat="sofa" data-cap="Frame Welding" data-sub="Metal frame repair">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/62dd588f9599.jpg" alt="Frame welding" loading="lazy"/>
         <div class="meta"><b>Frame Welding</b><span>Metal frame repair</span></div>
       </div>
 
-      <!-- Handloom 6 -->
-      <div class="gitem reveal" data-cat="handloom" data-cap="Weaving Detail" data-sub="Close-up of warp &amp; weft">
+      <!-- NEW -->
+      <div class="gitem" data-cat="sofa" data-cap="Sofa Cushion Restuffing" data-sub="Soft foam + fibre filling">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3f3861fdbd3a.jpg" alt="Sofa cushion restuffing" loading="lazy"/>
+        <div class="meta"><b>Sofa Cushion Restuffing</b><span>Soft foam + fibre</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="sofa" data-cap="Sofa Deep Cleaning" data-sub="Shampoo + stain removal">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7e95fe406fb0.jpg" alt="Sofa deep cleaning" loading="lazy"/>
+        <div class="meta"><b>Sofa Deep Cleaning</b><span>Shampoo wash</span></div>
+      </div>
+
+      <!-- ============ UPHOLSTERY ============ -->
+      <div class="gitem" data-cat="upholstery" data-cap="Premium Sofa Upholstery" data-sub="New fabric being fitted">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b0c55ddfef0c.jpg" alt="Premium sofa upholstery fabric" loading="lazy"/>
+        <div class="meta"><b>Premium Sofa Upholstery</b><span>Fabric fitting</span></div>
+      </div>
+
+      <div class="gitem" data-cat="upholstery" data-cap="Velvet Sofa Upholstery" data-sub="Designer fabric finish">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9d65d45a7bd0.jpg" alt="Velvet sofa upholstery" loading="lazy"/>
+        <div class="meta"><b>Velvet Sofa Upholstery</b><span>Designer fabric</span></div>
+      </div>
+
+      <div class="gitem" data-cat="upholstery" data-cap="Designer Fabric Sofa" data-sub="Custom print upholstery">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b3c247d52da5.png" alt="Designer fabric sofa" loading="lazy"/>
+        <div class="meta"><b>Designer Fabric Sofa</b><span>Custom print</span></div>
+      </div>
+
+      <div class="gitem" data-cat="upholstery" data-cap="Cushion Refilling" data-sub="Memory foam upgrade">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3f3861fdbd3a.jpg" alt="Cushion refilling" loading="lazy"/>
+        <div class="meta"><b>Cushion Refilling</b><span>Memory foam upgrade</span></div>
+      </div>
+
+      <div class="gitem" data-cat="upholstery" data-cap="Recliner Upholstery" data-sub="Custom leatherette">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7e95fe406fb0.jpg" alt="Recliner upholstery" loading="lazy"/>
+        <div class="meta"><b>Recliner Upholstery</b><span>Custom leatherette</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="upholstery" data-cap="Dining Bench Upholstery" data-sub="Wood + fabric combo">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/58f1ea034c84.jpg" alt="Dining bench upholstery" loading="lazy"/>
+        <div class="meta"><b>Dining Bench Upholstery</b><span>Wood + fabric</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="upholstery" data-cap="Office Seat Recover" data-sub="Breathable mesh fabric">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a2d2b614a977.jpg" alt="Office seat recover" loading="lazy"/>
+        <div class="meta"><b>Office Seat Recover</b><span>Mesh fabric</span></div>
+      </div>
+
+      <!-- ============ CURTAINS ============ -->
+      <div class="gitem tall" data-cat="curtains" data-cap="Elegant Curtains" data-sub="Custom stitched drapes">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/505d809d3dbd.jpg" alt="Elegant curtains" loading="lazy"/>
+        <div class="meta"><b>Elegant Curtains</b><span>Custom stitched</span></div>
+      </div>
+
+      <div class="gitem" data-cat="curtains" data-cap="Sheer Curtains" data-sub="Living room fitting">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/140c94dad20f.jpg" alt="Sheer curtains" loading="lazy"/>
+        <div class="meta"><b>Sheer Curtains</b><span>Living room fitting</span></div>
+      </div>
+
+      <div class="gitem" data-cat="curtains" data-cap="Blackout Curtains" data-sub="Bedroom fitting">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/70275e9031b3.jpg" alt="Blackout curtains" loading="lazy"/>
+        <div class="meta"><b>Blackout Curtains</b><span>Bedroom fitting</span></div>
+      </div>
+
+      <div class="gitem" data-cat="curtains" data-cap="Roman Blinds" data-sub="Custom stitched">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4eba969b10f2.jpeg" alt="Roman blinds" loading="lazy"/>
+        <div class="meta"><b>Roman Blinds</b><span>Custom stitched</span></div>
+      </div>
+
+      <div class="gitem" data-cat="curtains" data-cap="Layered Curtains" data-sub="Sheer + blackout combo">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/047b1555a0dc.webp" alt="Layered curtains" loading="lazy"/>
+        <div class="meta"><b>Layered Curtains</b><span>Sheer + blackout</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="curtains" data-cap="Door Parda Set" data-sub="Full-length drape">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/93f017bb8809.jpg" alt="Door parda set" loading="lazy"/>
+        <div class="meta"><b>Door Parda Set</b><span>Full-length drape</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="curtains" data-cap="Kitchen Curtains" data-sub="Short cafe style">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/91822e676905.png" alt="Kitchen curtains" loading="lazy"/>
+        <div class="meta"><b>Kitchen Curtains</b><span>Cafe style</span></div>
+      </div>
+
+      <!-- ============ HANDLOOM ============ -->
+      <div class="gitem" data-cat="handloom" data-cap="Handloom Bedsheet" data-sub="Pure cotton, traditional print">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d5c963875747.jpg" alt="Handloom bedsheet" loading="lazy"/>
+        <div class="meta"><b>Handloom Bedsheet</b><span>Pure cotton</span></div>
+      </div>
+
+      <div class="gitem tall" data-cat="handloom" data-cap="Traditional Print Bedsheet" data-sub="Block print design">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f0bea432de3f.jpg" alt="Traditional print bedsheet" loading="lazy"/>
+        <div class="meta"><b>Traditional Print</b><span>Block print design</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Handloom Weaving" data-sub="Artisan at work">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/840c051d8413.jpg" alt="Handloom weaving" loading="lazy"/>
+        <div class="meta"><b>Handloom Weaving</b><span>Artisan at work</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Jaipuri Print Bedsheet" data-sub="Traditional design">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b42db515ecd6.jpg" alt="Jaipuri print bedsheet" loading="lazy"/>
+        <div class="meta"><b>Jaipuri Print</b><span>Traditional design</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Loom in Action" data-sub="Traditional weaving process">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6f8ee395700f.jpg" alt="Loom in action" loading="lazy"/>
+        <div class="meta"><b>Loom in Action</b><span>Traditional weaving</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Cotton Dohar" data-sub="Lightweight summer quilt">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/ef9aa93eda74.jpg" alt="Cotton dohar" loading="lazy"/>
+        <div class="meta"><b>Cotton Dohar</b><span>Summer quilt</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Block Print Process" data-sub="Hand printing on fabric">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/00ef73a0b7b8.png" alt="Block print process" loading="lazy"/>
+        <div class="meta"><b>Block Print Process</b><span>Hand printing</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Natural Dye Process" data-sub="Traditional coloring">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/abe0bb065f21.jpg" alt="Natural dye process" loading="lazy"/>
+        <div class="meta"><b>Natural Dye Process</b><span>Traditional coloring</span></div>
+      </div>
+
+      <div class="gitem" data-cat="handloom" data-cap="Weaving Detail" data-sub="Close-up of warp &amp; weft">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f9a910fb53a4.jpg" alt="Weaving detail" loading="lazy"/>
         <div class="meta"><b>Weaving Detail</b><span>Warp &amp; weft</span></div>
       </div>
 
-      <!-- Chairs 5b -->
-      <div class="gitem reveal" data-cat="chairs" data-cap="Chair Cushion Refill" data-sub="New foam + cover">
+      <!-- NEW -->
+      <div class="gitem" data-cat="handloom" data-cap="Handloom Fabric Rolls" data-sub="Fresh stock arrival">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b6b854412e20.jpg" alt="Handloom fabric rolls" loading="lazy"/>
+        <div class="meta"><b>Handloom Fabric Rolls</b><span>Fresh stock</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="handloom" data-cap="Cotton Sofa Throw" data-sub="Handwoven throw">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/82efd582cbd0.jpg" alt="Cotton sofa throw" loading="lazy"/>
+        <div class="meta"><b>Cotton Sofa Throw</b><span>Handwoven</span></div>
+      </div>
+
+      <!-- ============ CHAIRS ============ -->
+      <div class="gitem" data-cat="chairs" data-cap="Dining Chair Restoration" data-sub="Re-upholstered seat">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/58f1ea034c84.jpg" alt="Dining chair restoration" loading="lazy"/>
+        <div class="meta"><b>Dining Chair Restoration</b><span>Re-upholstered</span></div>
+      </div>
+
+      <div class="gitem" data-cat="chairs" data-cap="Office Chair Repair" data-sub="Re-upholstered seat &amp; back">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a2d2b614a977.jpg" alt="Office chair repair" loading="lazy"/>
+        <div class="meta"><b>Office Chair Repair</b><span>Re-upholstered</span></div>
+      </div>
+
+      <div class="gitem tall" data-cat="chairs" data-cap="Vintage Chair Restore" data-sub="Wood polish + upholstery">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/995310297aea.jpg" alt="Vintage chair restoration" loading="lazy"/>
+        <div class="meta"><b>Vintage Chair Restore</b><span>Polish + upholstery</span></div>
+      </div>
+
+      <div class="gitem" data-cat="chairs" data-cap="Farmhouse Chair Repair" data-sub="Cane + upholstery">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0b77b87a04d7.jpg" alt="Farmhouse chair repair" loading="lazy"/>
+        <div class="meta"><b>Farmhouse Chair Repair</b><span>Cane + upholstery</span></div>
+      </div>
+
+      <div class="gitem" data-cat="chairs" data-cap="Chair Cushion Refill" data-sub="New foam + cover">
         <div class="zoom-ic">🔍</div>
         <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/549c99ec586e.jpg" alt="Chair cushion refill" loading="lazy"/>
         <div class="meta"><b>Chair Cushion Refill</b><span>New foam + cover</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="chairs" data-cap="Bar Stool Repair" data-sub="Height + cushion fix">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/97ce4879fca1.jpg" alt="Bar stool repair" loading="lazy"/>
+        <div class="meta"><b>Bar Stool Repair</b><span>Cushion fix</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="chairs" data-cap="Plastic Chair Cushion" data-sub="Tie-on seat pad">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/79854e62e999.jpg" alt="Plastic chair cushion" loading="lazy"/>
+        <div class="meta"><b>Plastic Chair Cushion</b><span>Tie-on seat pad</span></div>
+      </div>
+
+      <!-- ============ CUSHIONS ============ -->
+      <div class="gitem" data-cat="cushions" data-cap="Decorative Cushions" data-sub="Handmade cushion covers">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b6b854412e20.jpg" alt="Decorative cushion covers" loading="lazy"/>
+        <div class="meta"><b>Decorative Cushions</b><span>Handmade</span></div>
+      </div>
+
+      <div class="gitem" data-cat="cushions" data-cap="Colorful Cushions Set" data-sub="Matching cushion covers">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/82efd582cbd0.jpg" alt="Colorful cushion covers" loading="lazy"/>
+        <div class="meta"><b>Colorful Cushions Set</b><span>Matching covers</span></div>
+      </div>
+
+      <div class="gitem" data-cat="cushions" data-cap="Embroidered Cushion" data-sub="Hand-stitched">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9969d6bf5768.jpg" alt="Embroidered cushion cover" loading="lazy"/>
+        <div class="meta"><b>Embroidered Cushion</b><span>Hand-stitched</span></div>
+      </div>
+
+      <div class="gitem" data-cat="cushions" data-cap="Boho Cushion Set" data-sub="Tasseled design">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/5357c6775c6d.png" alt="Boho cushion set" loading="lazy"/>
+        <div class="meta"><b>Boho Cushion Set</b><span>Tasseled design</span></div>
+      </div>
+
+      <div class="gitem" data-cat="cushions" data-cap="Velvet Cushion Covers" data-sub="Premium fabric">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/cfa925612867.jpg" alt="Velvet cushion covers" loading="lazy"/>
+        <div class="meta"><b>Velvet Cushion Covers</b><span>Premium fabric</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="cushions" data-cap="Chair Pad Set" data-sub="Set of 4 pads">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d5c963875747.jpg" alt="Chair pad set" loading="lazy"/>
+        <div class="meta"><b>Chair Pad Set</b><span>Set of 4</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="cushions" data-cap="Printed Cushion Covers" data-sub="Cotton block print">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f0bea432de3f.jpg" alt="Printed cushion covers" loading="lazy"/>
+        <div class="meta"><b>Printed Cushion Covers</b><span>Block print</span></div>
+      </div>
+
+      <!-- ============ LIVING ROOM / DECOR ============ -->
+      <div class="gitem" data-cat="decor" data-cap="Living Room Decor" data-sub="Complete makeover">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/97ce4879fca1.jpg" alt="Living room decor" loading="lazy"/>
+        <div class="meta"><b>Living Room Decor</b><span>Complete makeover</span></div>
+      </div>
+
+      <div class="gitem" data-cat="decor" data-cap="Cozy Living Space" data-sub="Sofa &amp; cushions combined">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/79854e62e999.jpg" alt="Cozy living space" loading="lazy"/>
+        <div class="meta"><b>Cozy Living Space</b><span>Sofa + cushions</span></div>
+      </div>
+
+      <div class="gitem" data-cat="decor" data-cap="Modern Living Room" data-sub="Sofa + curtain combo">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/93f017bb8809.jpg" alt="Modern living room" loading="lazy"/>
+        <div class="meta"><b>Modern Living Room</b><span>Sofa + curtain combo</span></div>
+      </div>
+
+      <div class="gitem" data-cat="decor" data-cap="Cozy Reading Corner" data-sub="Chair + cushion + curtain">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/91822e676905.png" alt="Cozy reading corner" loading="lazy"/>
+        <div class="meta"><b>Cozy Reading Corner</b><span>Chair + curtain</span></div>
+      </div>
+
+      <div class="gitem" data-cat="decor" data-cap="Heritage Living Room" data-sub="Antique sofa restored">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/89659a34eabb.jpeg" alt="Heritage living room" loading="lazy"/>
+        <div class="meta"><b>Heritage Living Room</b><span>Antique restored</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="decor" data-cap="Kids Room Decor" data-sub="Sofa + parda combo">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/70275e9031b3.jpg" alt="Kids room decor" loading="lazy"/>
+        <div class="meta"><b>Kids Room Decor</b><span>Sofa + parda</span></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="gitem" data-cat="decor" data-cap="Balcony Seating" data-sub="Outdoor cushion set">
+        <div class="zoom-ic">🔍</div>
+        <img src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4eba969b10f2.jpeg" alt="Balcony seating" loading="lazy"/>
+        <div class="meta"><b>Balcony Seating</b><span>Outdoor cushions</span></div>
       </div>
 
     </div>
@@ -354,6 +422,7 @@
   </div>
 </section>
 
+
 <!-- CTA banner -->
 <section style="padding:50px 0 80px">
   <div class="container">
@@ -361,7 +430,7 @@
       <h2>Aapke Ghar Ke Liye Bhi Kuch Banaayein?</h2>
       <p>Gallery pasand aayi? Ab aapki baari. Free estimate ke liye abhi sampark karein.</p>
       <div class="btns">
-        <a href="#" class="btn btn-wa" onclick="return openWA('Hello Sajavat! Mujhe gallery pasand aayi, free estimate chahiye.')">💬 WhatsApp Karein</a>
+        <a href="#" class="btn btn-wa" onclick="return openWA('Hello Sajawat! Mujhe gallery pasand aayi, free estimate chahiye.')">💬 WhatsApp Karein</a>
         <a href="index.html#contact" class="btn btn-light">📩 Estimate Form Bharein</a>
       </div>
     </div>
@@ -373,7 +442,7 @@
   <div class="container">
     <div class="f-grid">
       <div>
-        <div class="logo" style="color:#fff;margin-bottom:16px"><span class="mark">S</span><span>Sajavat<small style="color:#C9BBA6">HANDLOOM &amp; SOFA REPAIR</small></span></div>
+        <div class="logo" style="color:#fff;margin-bottom:16px"><span class="mark">S</span><span>Sajawat<small style="color:#C9BBA6">HANDLOOM &amp; SOFA REPAIR</small></span></div>
         <p>Purani cheezon ko naya roop dene aur haath se buni khoobsurti ko ghar-ghar pahunchane ka kaam.
            Quality, samay aur imaandari — teeno hamari pehchan.</p>
         <div class="social-row" style="margin-top:18px">
@@ -414,13 +483,13 @@
           <li>🚚 Free Pickup (15 km)</li>
           <li>✅ 6-Month Warranty</li>
         </ul>
-        <a href="#" class="btn btn-wa btn-sm" style="margin-top:14px" onclick="return openWA('Hello Sajavat!')">💬 WhatsApp Us</a>
+        <a href="#" class="btn btn-wa btn-sm" style="margin-top:14px" onclick="return openWA('Hello Sajawat!')">💬 WhatsApp Us</a>
       </div>
     </div>
   </div>
   <div class="f-bottom">
     <div class="container">
-      <span>© 2025 Sajavat – Handloom &amp; Sofa Repair. All rights reserved.</span>
+      <span>© 2025 Sajawat – Handloom &amp; Sofa Repair. All rights reserved.</span>
       <span>Made with ❤️ for Indian Homes</span>
     </div>
   </div>
@@ -439,7 +508,7 @@
 </div>
 
 <!-- WhatsApp Float -->
-<a href="#" class="wa-float" aria-label="WhatsApp" onclick="return openWA('Hello Sajavat! Mujhe service chahiye.')">
+<a href="#" class="wa-float" aria-label="WhatsApp" onclick="return openWA('Hello Sajawat! Mujhe service chahiye.')">
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.7 1.4 5.7 1.4h.1c6.5 0 11.9-5.4 11.9-12S22.5 3 16 3zm0 21.9c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4c-1-1.6-1.6-3.4-1.6-5.2 0-5.5 4.9-10.4 11.2-10.4S27.5 8.9 27.5 15 22.3 24.9 16 24.9zm5.6-7.4c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.5 3.9 6.1 5.3.9.4 1.5.6 2 .7.9.3 1.7.3 2.3.2.7-.1 2-.9 2.3-1.7.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
 </a>
 

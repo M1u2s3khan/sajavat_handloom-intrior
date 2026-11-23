@@ -1,112 +1,204 @@
-.js
-/* =====================================================================
-   Sajavat - Shared main.js  (navigation, scroll reveal, form, WhatsApp)
-   ===================================================================== */
+/* =========================================================
+   Gallery.js — Filter + Lightbox (Bulletproof)
+   ========================================================= */
+(function () {
+  'use strict';
 
-/* ⚠️ YAHAN APNA ASLI WHATSAPP NUMBER DALEIN (91 + number, bina + ya space) */
-const WA_NUMBER = "9198XXXXXXX00";
+  var grid = document.getElementById('galleryGrid');
+  if (!grid) { console.warn('[Gallery] #galleryGrid not found'); return; }
 
-function openWA(text){
-  window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text), "_blank");
-  return false;
-}
+  var items      = Array.prototype.slice.call(grid.querySelectorAll('.gitem'));
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+  var countEl    = document.getElementById('galleryCount');
 
-document.addEventListener("DOMContentLoaded", function (){
+  var visibleItems = items.slice();
+  var currentIdx   = 0;
 
-  /* ---------- Mobile menu ---------- */
-  const ham = document.getElementById("hamburger");
-  const links = document.getElementById("navLinks");
-  if (ham && links) {
-    ham.addEventListener("click", () => {
-      ham.classList.toggle("open");
-      links.classList.toggle("open");
-    });
-    links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      ham.classList.remove("open");
-      links.classList.remove("open");
-    }));
-  }
+  /* ---------- lightbox refs ---------- */
+  var lb = document.getElementById('lightbox');
+  if (!lb) { console.warn('[Gallery] #lightbox not found'); return; }
 
-  /* ---------- Navbar shadow on scroll ---------- */
-  const nav = document.getElementById("nav");
-  if (nav) {
-    const onScroll = () => {
-      if (window.scrollY > 8) nav.classList.add("scrolled");
-      else nav.classList.remove("scrolled");
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
+  var lbImg     = document.getElementById('lbImg');
+  var lbCap     = document.getElementById('lbCap');
+  var lbCounter = document.getElementById('lbCounter');
+  var lbClose   = lb.querySelector('.lb-close');
+  var lbPrev    = lb.querySelector('.lb-prev');
+  var lbNext    = lb.querySelector('.lb-next');
 
-  /* ---------- Scroll reveal animation ---------- */
-  const revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          en.target.classList.add("in");
-          io.unobserve(en.target);
+  /* ==========================================
+     1. FILTER BUTTONS
+     ========================================== */
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var cat = btn.dataset.cat || 'all';
+      console.log('[Gallery] Filter clicked →', cat);
+
+      items.forEach(function (item) {
+        var match = (cat === 'all') || (item.dataset.cat === cat);
+        if (match) {
+          item.classList.remove('is-hidden');
+          item.style.display = '';          // inline fallback
+          item.classList.remove('fade');
+          void item.offsetWidth;            // reflow → fade restart
+          item.classList.add('fade');
+        } else {
+          item.classList.add('is-hidden');
+          item.style.display = 'none';      // inline fallback
+          item.classList.remove('fade');
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add("in"));
-  }
 
-  /* ---------- Active nav link on scroll (only on home page) ---------- */
-  if (document.body.dataset.page !== "gallery") {
-    const secs = ["home","about","services","reviews","contact"];
-    const navAnchors = document.querySelectorAll(".nav-links a");
-    const updateActive = () => {
-      let cur = "home";
-      secs.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 130) cur = id;
+      visibleItems = items.filter(function (i) {
+        return !i.classList.contains('is-hidden');
       });
-      // Gallery is separate page; ignore if it's the active link
-      navAnchors.forEach(a => {
-        const href = a.getAttribute("href");
-        if (href && href.indexOf("#") === 0) {
-          a.classList.toggle("active", href === "#" + cur);
-        }
-      });
-    };
-    window.addEventListener("scroll", updateActive, { passive: true });
-    updateActive();
-  }
 
-  /* ---------- Quote form -> WhatsApp ---------- */
-  const form = document.getElementById("quoteForm");
-  if (form) {
-    form.addEventListener("submit", function (e){
-      e.preventDefault();
-      const n = (document.getElementById("fName")||{}).value || "";
-      const p = (document.getElementById("fPhone")||{}).value || "";
-      const s = (document.getElementById("fService")||{}).value || "";
-      const u = (document.getElementById("fUrgent")||{}).value || "";
-      const m = (document.getElementById("fMsg")||{}).value || "";
-      const msg =
-        "Hello Sajavat! 👋\n\n" +
-        "Naam: " + n.trim() + "\n" +
-        "Phone: " + p.trim() + "\n" +
-        "Service: " + s + "\n" +
-        "Urgency: " + u +
-        (m.trim() ? "\nMessage: " + m.trim() : "") +
-        "\n\nMujhe free estimate chahiye.";
-      openWA(msg);
-    });
-  }
+      if (countEl) countEl.textContent = visibleItems.length;
 
-  /* ---------- FAQ accordion ---------- */
-  document.querySelectorAll(".faq-q").forEach(q => {
-    q.addEventListener("click", () => {
-      const faq = q.parentElement;
-      const isOpen = faq.classList.contains("open");
-      // close all (uncomment for single-open behaviour)
-      // document.querySelectorAll(".faq").forEach(f => f.classList.remove("open"));
-      faq.classList.toggle("open", !isOpen);
+      if (lb.classList.contains('open')) {
+        if (!visibleItems.length) { closeLB(); }
+        else { show(0); }
+      }
+
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-});
+  /* ==========================================
+     2. LIGHTBOX CORE
+     ========================================== */
+  function captionOf(item) {
+    var cap = item.dataset.cap || '';
+    var sub = item.dataset.sub || '';
+    return sub ? (cap + ' — ' + sub) : cap;
+  }
+
+  function show(idx) {
+    if (!visibleItems.length) return;
+    currentIdx = (idx + visibleItems.length) % visibleItems.length;
+
+    var item = visibleItems[currentIdx];
+    var img  = item.querySelector('img');
+    if (!img) return;
+
+    lbImg.src             = img.src;
+    lbImg.alt             = img.alt || '';
+    if (lbCap)     lbCap.textContent     = captionOf(item);
+    if (lbCounter) lbCounter.textContent = (currentIdx + 1) + ' / ' + visibleItems.length;
+  }
+
+  function openLB(item) {
+    console.log('[Gallery] openLB →', item.dataset.cap);
+
+    visibleItems = items.filter(function (i) {
+      return !i.classList.contains('is-hidden');
+    });
+    var idx = visibleItems.indexOf(item);
+    currentIdx = idx < 0 ? 0 : idx;
+
+    show(currentIdx);
+
+    // ✅ CLASS + INLINE STYLES (CSS pe depend nahi)
+    lb.classList.add('open');
+    lb.style.display       = 'flex';
+    lb.style.opacity       = '1';
+    lb.style.visibility    = 'visible';
+    lb.style.pointerEvents = 'auto';
+    lb.style.zIndex        = '99999';
+    lb.style.position      = 'fixed';
+    lb.style.inset         = '0';
+    lb.style.alignItems    = 'center';
+    lb.style.justifyContent= 'center';
+
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLB() {
+    lb.classList.remove('open');
+    lb.style.display       = '';
+    lb.style.opacity       = '';
+    lb.style.visibility    = '';
+    lb.style.pointerEvents = '';
+    lb.style.zIndex        = '';
+    lb.style.position      = '';
+    lb.style.inset         = '';
+    lb.style.alignItems    = '';
+    lb.style.justifyContent= '';
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lbImg) lbImg.src = '';
+  }
+
+  function nextLB() { show(currentIdx + 1); }
+  function prevLB() { show(currentIdx - 1); }
+
+  /* ==========================================
+     3. ITEM CLICK → OPEN LIGHTBOX
+     ========================================== */
+  items.forEach(function (item) {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      openLB(item);
+    });
+
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLB(item);
+      }
+    });
+  });
+
+  /* ==========================================
+     4. LIGHTBOX CONTROLS
+     ========================================== */
+  if (lbClose) lbClose.addEventListener('click', function (e) {
+    e.stopPropagation();
+    closeLB();
+  });
+
+  if (lbNext) lbNext.addEventListener('click', function (e) {
+    e.stopPropagation();
+    nextLB();
+  });
+
+  if (lbPrev) lbPrev.addEventListener('click', function (e) {
+    e.stopPropagation();
+    prevLB();
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target.classList.contains('stage')) closeLB();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLB();
+    if (e.key === 'ArrowRight') nextLB();
+    if (e.key === 'ArrowLeft')  prevLB();
+  });
+
+  /* ---------- mobile swipe ---------- */
+  var touchX = 0;
+  lb.addEventListener('touchstart', function (e) {
+    touchX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  lb.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) { dx < 0 ? nextLB() : prevLB(); }
+  }, { passive: true });
+
+  /* ---------- init counter ---------- */
+  if (countEl) countEl.textContent = items.length;
+
+  console.log('[Gallery] Ready — total items:', items.length);
+
+})();
